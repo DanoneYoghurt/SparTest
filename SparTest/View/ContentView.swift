@@ -20,12 +20,15 @@ struct ContentView: View {
                             ForEach(viewModel.products.products, id: \.id) { product in
                                 ProductListView(product: product, shoppingCart: $viewModel.shoppingCartItem)
                             }
+                            
                         } else {
                             LazyVGrid(columns: [GridItem(.adaptive(minimum: 110)), GridItem(.adaptive(minimum: 110))]) {
                                 ForEach(viewModel.products.products, id: \.id) { product in
                                     ProductGridView(product: product, shoppingCart: $viewModel.shoppingCartItem)
                             }
+                                
                     }
+                            .padding(.horizontal)
                 }
             }
                     .sheet(isPresented: $showShoppingBag) {
